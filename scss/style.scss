@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&family=Plus+Jakarta+Sans:wght@600&display=swap');
 
+//links
+$color_link: #0E6ED6;
+$color_link-visited: #003D7F;
+$color_link-hover: #0552A5;
+
+$arrow_link: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxNCAxNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTcgMC4zMzMzNDRMNS44MjUgMS41MDgzNEwxMC40NzUgNi4xNjY2OEgwLjMzMzMzNlY3LjgzMzM0SDEwLjQ3NUw1LjgyNSAxMi40OTE3TDcgMTMuNjY2N0wxMy42NjY3IDcuMDAwMDFMNyAwLjMzMzM0NFoiIGZpbGw9IiMwRTZFRDYiLz4KPC9zdmc+Cg==';
+// can't use background-image, because of privacy restrictions: https://developer.mozilla.org/en-US/docs/Web/CSS/:visited
+//$arrow_link-visited: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxNCAxNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTcuMDAwMDQgMC4zMzMzMzZMNS44MjUwNCAxLjUwODM0TDEwLjQ3NSA2LjE2NjY3SDAuMzMzMzc0VjcuODMzMzRIMTAuNDc1TDUuODI1MDQgMTIuNDkxN0w3LjAwMDA0IDEzLjY2NjdMMTMuNjY2NyA3TDcuMDAwMDQgMC4zMzMzMzZaIiBmaWxsPSIjMDAzRDdGIi8+Cjwvc3ZnPgo=';
+$arrow_link-hover: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxNCAxNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTcuMDAwMDQgMC4zMzMzMzZMNS44MjUwNCAxLjUwODM0TDEwLjQ3NSA2LjE2NjY3SDAuMzMzMzc0VjcuODMzMzRIMTAuNDc1TDUuODI1MDQgMTIuNDkxN0w3LjAwMDA0IDEzLjY2NjdMMTMuNjY2NyA3TDcuMDAwMDQgMC4zMzMzMzZaIiBmaWxsPSIjMDU1MkE1Ii8+Cjwvc3ZnPgo=';
+
 body, html {
   color: #7D91A2;
   font-family: 'Noto Sans', 'Roboto', 'Lato', 'Montserrat', sans-serif;
@@ -44,32 +54,28 @@ ul {
 }
 
 a {
-  position: relative;
-  color: #0E6ED6;
+  background-image: url($arrow_link);
+  background-position: 100% 50%;
+  background-repeat: no-repeat;
+  color: $color_link;
   font-size: 16px;
   font-weight: 600;
   text-decoration: none;
   padding-right: 20px;
-  &:visited{
-    color: #003D7F;
-  }
-  &:hover{
-    color: #0552A5;
-  }
-  &:active{
-    color: #0552A5;
-    text-decoration: underline;
-  }
 
-  &::after {
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxNCAxNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTcgMC4zMzMzNDRMNS44MjUgMS41MDgzNEwxMC40NzUgNi4xNjY2OEgwLjMzMzMzNlY3LjgzMzM0SDEwLjQ3NUw1LjgyNSAxMi40OTE3TDcgMTMuNjY2N0wxMy42NjY3IDcuMDAwMDFMNyAwLjMzMzM0NFoiIGZpbGw9IiMwRTZFRDYiLz4KPC9zdmc+Cg==);
-    position: absolute;
-    display: block;
-    height: 14px;
-    width: 14px;
-    top: 4px;
-    right: 0;
-    content: '';
+  &:visited {
+    color: $color_link-visited;
+    // can't use background-image, because of privacy restrictions: https://developer.mozilla.org/en-US/docs/Web/CSS/:visited
+    // background-image: url($arrow_link-visited);
+  }
+  &:hover {
+    background-image: url($arrow_link-hover);
+    color: $color_link-hover;
+  }
+  &:active {
+    background-image: url($arrow_link-hover);
+    color: $color_link-hover;
+    text-decoration: underline;
   }
 }
 
